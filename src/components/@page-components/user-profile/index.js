@@ -1,8 +1,7 @@
-// components/User.js
 import { useState } from 'react';
 import { FaUserCircle, FaSignOutAlt } from 'react-icons/fa';
 
-const User = ({ username, avatar, onLogout }) => {
+const User = ({ username, onLogout }) => {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
     const toggleDropdown = () => {
@@ -13,14 +12,10 @@ const User = ({ username, avatar, onLogout }) => {
         <div className="relative">
             <button
                 onClick={toggleDropdown}
-                className="flex items-center text-gray-700 hover:text-gray-900"
+                className="flex flex-col items-center text-gray-700 hover:text-gray-900"
             >
-                {/* User Avatar */}
-                <img
-                    src={avatar || '/default-avatar.png'} // Fallback to a default image
-                    alt="User Avatar"
-                    className="w-8 h-8 rounded-full mr-2"
-                />
+                {/* User Avatar with Person Icon */}
+                <FaUserCircle className="w-8 h-8 text-gray-700 mr-2" />
                 <span className="font-semibold">{username || 'Username'}</span>
             </button>
 

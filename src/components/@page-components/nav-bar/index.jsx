@@ -7,8 +7,10 @@ const Navbar = ({ searchTerm, setSearchTerm }) => {
     return (
         <div className="bg-white shadow-md flex items-center justify-between p-4">
             <Header />
+            <div className="hidden sm:block w-full mx-4"> 
                 <SearchFilter searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-                <User />
+            </div>
+            <User />
         </div>
     );
 };
