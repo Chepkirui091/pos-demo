@@ -17,6 +17,11 @@ export default function Invoice({
 
     const handleDownload = () => {
         const input = document.getElementById('invoice');
+        const buttons = document.querySelectorAll('.pdf-hide'); // Selecting the buttons by class
+
+        // Hide the buttons before generating PDF
+        buttons.forEach(button => button.style.display = 'none');
+
         html2canvas(input, { scale: 2 })
             .then((canvas) => {
                 const imgData = canvas.toDataURL('image/png');
@@ -26,8 +31,15 @@ export default function Invoice({
                 const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
                 pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
                 pdf.save(`invoice_${invoiceNumber || '0001'}.pdf`);
+
+                // Show the buttons again after generating PDF
+                buttons.forEach(button => button.style.display = 'flex');
             })
-            .catch((err) => console.log(err));
+            .catch((err) => {
+                console.log(err);
+                // Ensure buttons are visible again in case of an error
+                buttons.forEach(button => button.style.display = 'flex');
+            });
     };
 
     // Calculate subtotal if not provided
@@ -45,9 +57,6 @@ export default function Invoice({
                         className="h-16"
                     />
                     <h2 className="text-4xl font-bold">Invoice</h2>
-                    <button onClick={onClose} className="text-gray-600 hover:text-gray-800">
-                        <FaTimes size={24} />
-                    </button>
                 </div>
 
                 {/* Invoice Details */}
@@ -131,14 +140,14 @@ export default function Invoice({
                 <div className="flex justify-between space-x-4">
                     <button
                         onClick={handleDownload}
-                        className="flex items-center bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition"
+                        className="flex items-center bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition pdf-hide"
                     >
                         <FaDownload className="mr-2" />
                         Download
                     </button>
                     <button
                         onClick={onClose}
-                        className="flex items-center bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-green-600 transition"
+                        className="flex items-center bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-green-600 transition pdf-hide"
                     >
                         <FaTimes className="mr-2" />
                         Close
