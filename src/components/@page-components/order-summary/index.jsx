@@ -52,7 +52,7 @@ export default function Summary({ cartItems, total, handleRemoveFromCart }) {
     };
 
     return (
-        <div className="p-6 bg-white shadow rounded-lg">
+        <div className="p-6 bg-white shadow rounded-lg text-gray-700">
             <h2 className="text-xl font-bold mb-4 text-gray-800">Current Order</h2>
 
             {cartItems.length === 0 ? (

@@ -50,7 +50,7 @@ export default function Layout({ children }) {
 
                     </div>
                 </div>
-                <Link href="/auth/login" className="flex items-center space-x-2 hover:bg-blue-700 p-2 rounded">
+                <Link href="/" className="flex items-center space-x-2 hover:bg-blue-700 p-2 rounded">
                     <FaSignOutAlt className="text-xl" />
                     <span className="hidden md:block">Logout</span>
                 </Link>
