@@ -6,7 +6,6 @@ const Login = () => {
     const [activeStep, setActiveStep] = useState(0);
 
     const handleOnLogin = (values) => {
-        // Simulate a successful login
         console.log("Static Login Submitted: ", values);
         alert("Login successful (static)");
         // Optionally, navigate to the dashboard or another page

@@ -13,7 +13,6 @@ export default function Invoice({
                                     invoiceDate,
                                     billingInfo,
                                 }) {
-    console.log("Cart items in Invoice:", cartItems); // This should show the correct cartItems
 
     const handleDownload = () => {
         const input = document.getElementById('invoice');

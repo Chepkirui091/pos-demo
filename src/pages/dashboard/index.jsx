@@ -52,12 +52,10 @@ export default function POSPage() {
     };
 
     const handleCheckout = () => {
-        console.log("Cart items at checkout:", cartItems); // Log cart items
         setShowPaymentModal(true);
     };
 
     const handlePaymentSuccess = (method) => {
-        console.log("Cart items before showing invoice:", cartItems); // Log cart items before showing invoice
         setPaymentMethod(method);
         setShowPaymentModal(false);
         setShowInvoice(true);

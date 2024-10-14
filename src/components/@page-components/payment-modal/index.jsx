@@ -3,7 +3,6 @@ import { FaCcVisa, FaCcMastercard, FaPaypal, FaMoneyBillWave } from 'react-icons
 import Invoice from "@/components/@page-components/invoice";
 
 export default function PaymentModal({ finalTotal, cartItems, onClose }) {
-    console.log("Cart items in PaymentModal:", cartItems);
 
     const [isPaid, setIsPaid] = useState(false); // Track payment state
     const [paymentMethod, setPaymentMethod] = useState(''); // State for selected payment method

@@ -3,7 +3,6 @@ import { MdDelete } from 'react-icons/md'; // Import the delete icon
 import PaymentModal from "@/components/@page-components/payment-modal";
 
 export default function Summary({ cartItems, total, handleRemoveFromCart }) {
-    console.log("Cart items in summary:", cartItems);
     const discountPercentage = 0; // Set your discount logic here
     const taxPercentage = 0.1; // Example tax rate of 10%
 

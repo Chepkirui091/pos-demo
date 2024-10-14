@@ -33,14 +33,14 @@ export default function Layout({ children }) {
             <div className={`${isMobile && !open ? "md:w-auto w-[12%]" : ""} ${isMobile && open ? "w-[12%] md:w-auto" : ""} min-h-screen h-full bg-blue-800 text-white flex flex-col justify-between`}>
                 <div>
                     {/* Logo Link */}
-                    <Link href="/dashboard" className="text-2xl font-bold mb-8 flex items-center">
+                    <Link href="/dashboard" className="text-2xl font-bold mb-8 flex items-center mx-2 mt-2 bg-white text-orange-400 rounded">
                         <img
                             loading="lazy"
                             src="https://www.shutterstock.com/shutterstock/photos/1472127647/display_1500/stock-vector-p-o-s-letter-logo-design-vector-1472127647.jpg"
                             alt="P O S letter logo design vector"
-                            className="w-10 h-10 inline-block mr-2"
+                            className="w-20 p-2 h-12 inline-block mr-2"
                         />
-                        <span className="sm:block">POS System</span>
+                        <span className="sm:block">System</span>
                     </Link>
                     <div className="flex flex-col space-y-4">
                         <Link href="/dashboard" className={`flex items-center space-x-2 hover:bg-blue-700 p-2 rounded ${router.pathname === '/' ? 'bg-blue-700' : ''}`}>
