@@ -44,7 +44,8 @@ export default function Invoice({
 
     // Calculate subtotal if not provided
     const calculatedSubtotal = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
-    const calculatedTotal = total || calculatedSubtotal + tax;
+    const calculatedTax = tax || (calculatedSubtotal * 0.10);  // Calculate tax dynamically if not provided
+    const calculatedTotal = total || calculatedSubtotal + calculatedTax;
 
     return (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center text-gray-900 z-50">
@@ -127,7 +128,7 @@ export default function Invoice({
                         </div>
                         <div className="flex justify-between py-2">
                             <span className="font-semibold">Tax (10%):</span>
-                            <span>${tax.toFixed(2)}</span>
+                            <span>${calculatedTax.toFixed(2)}</span>
                         </div>
                         <div className="flex justify-between py-2 border-t-2">
                             <span className="font-bold text-lg">Total:</span>
